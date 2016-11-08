@@ -9,7 +9,14 @@
 # Deliverables:
 # 1) Print the orginal text (150 tokens)
 # 1) Print the new text
+import random
+import nltk
+import re
+import pprint
+nltk.download('punkt')
+from nltk.book import *
+from nltk import word_tokenize, sent_tokenize
 print("START*******")
-print('Hi')
-
+text = text2[:50]
+print (text)
 print("\n\nEND*******")
