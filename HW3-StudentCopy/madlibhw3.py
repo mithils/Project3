@@ -17,6 +17,26 @@ nltk.download('punkt')
 from nltk.book import *
 from nltk import word_tokenize, sent_tokenize
 print("START*******")
-text = text2[:50]
+text = text2[:150]
 print (text)
+#tokens = nltk.word_tokenize(text)
+#print(tokens[:150])
+tagged_tokens = nltk.pos_tag(text)
+tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective", 'AD': 'an adverb'}
+substitution_probabilities = {"NN":.15,"NNS":.15,"VB":.1,"JJ":.1,'AD':.1 }
+def spaced(word):
+	if word in [",", ".", "?", "!", ":"]:
+		return word
+	else:
+		return " " + word
+
+final_words = []
+for (word, tag) in tagged_tokens:
+	if tag not in substitution_probabilities or random.random() > substitution_probabilities[tag]:
+		final_words.append(spaced(word))
+	else:
+		new_word = input("Please enter %s:\n" % (tagmap[tag]))
+		final_words.append(spaced(new_word))
+
+print ("".join(final_words))
 print("\n\nEND*******")
