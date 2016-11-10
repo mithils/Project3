@@ -10,3 +10,9 @@
 
 # Deliverables
 # Make sure the new page is uploaded to your GitHub account.
+import requests
+import operator
+from bs4 import BeautifulSoup
+base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
+r = requests.get(base_url)
+soup = BeautifulSoup(r.text)
