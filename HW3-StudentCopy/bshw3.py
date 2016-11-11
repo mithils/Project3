@@ -13,6 +13,14 @@
 import requests
 import operator
 from bs4 import BeautifulSoup
+import re
 base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
 r = requests.get(base_url)
-soup = BeautifulSoup(r.text)
+list_a = []
+soup = BeautifulSoup(r.text, 'html.parser')
+title = soup.find_all('div', {'class' : 'field-item even'})
+for  word in title:
+    if word.p:
+        soup.append(word.text.replace('student', 'AMAZING student'))
+print (soup)
+
