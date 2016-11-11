@@ -16,18 +16,38 @@ from bs4 import BeautifulSoup
 import re
 base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
 r = requests.get(base_url)
-##Part A
-list_a = []
-soup = BeautifulSoup(r.text, 'html.parser')
-title = soup.find_all('div', {'class' : 'field-item even'})
-for  word in title:
-    if word.p:
-        soup.append(word.text.replace('student', 'AMAZING student'))
-print (soup)
+x = open('project3.html','w')
+soup_99 = BeautifulSoup(r.text, 'html.parser')
+print (soup_99.prettify())
+changes = soup_99.prettify()
+text_replace = changes.replace('student', 'AMAZING student')
+img_replace = text_replace.replace('https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg', 'media/test1.jpg')
+logo_replace = img_replace.replace('logo2.png', 'media/logo.png')
 
-##Part B
-title_1 = soup.find_all('div', {'class' : 'field-item even'})
-for picture in title_1:
-    if picture.img:
-        soup.append
-##Part C
+##
+##
+####Part A
+##list_a = []
+##soup = BeautifulSoup(r.text, 'html.parser')
+##title = soup.find_all('div', {'class' : 'field-item even'})
+##for word in title:
+##    if word.p:
+##        soup.append(word.text.replace('student', 'AMAZING student'))
+##title_1 = soup.find_all('a', {'class': 'menu__link'})
+##for side in title_1:
+##    if side['href']:
+##        soup.append(side.text.replace('student', 'AMAZING student'))        
+###print (soup)
+##
+####Part B
+##
+##title_1 = soup.find_all('div', {'class' : 'field-item even'})
+##old_image_src = 'https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg'
+##new = soup.prettify()
+##new_image = new.replace('https://testbed.files.wordpress.com/2012/09/bsi_exposition_041316_192.jpg', 'test1.jpg')
+###print (new_image)
+####Part C
+x.write(logo_replace)
+#x.write(img_replace)
+#x.write(logo_replace)
+x.close()
