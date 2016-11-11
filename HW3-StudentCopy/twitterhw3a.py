@@ -17,6 +17,6 @@ auth.set_access_token(access_token,access_token_secret)
 api = tweepy.API(auth)
 picture = 'media/Harbaugh.jpg'
 tags = '@CoachJim4UM #UMSI-206 #Proj3' #Contains tweet message and tags
-status = api.update_with_media(picture, status=tags)
+status = api.update_with_media(picture, status=tags) #Sends out the tweet
 print("""No output necessary although you 
 	can print out a success/failure message if you want to.""")
