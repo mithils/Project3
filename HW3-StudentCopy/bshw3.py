@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup
 import re
 base_url = 'http://collemc.people.si.umich.edu/data/bshw3StarterFile.html'
 r = requests.get(base_url)
+##Part A
 list_a = []
 soup = BeautifulSoup(r.text, 'html.parser')
 title = soup.find_all('div', {'class' : 'field-item even'})
@@ -24,3 +25,9 @@ for  word in title:
         soup.append(word.text.replace('student', 'AMAZING student'))
 print (soup)
 
+##Part B
+title_1 = soup.find_all('div', {'class' : 'field-item even'})
+for picture in title_1:
+    if picture.img:
+        soup.append
+##Part C
