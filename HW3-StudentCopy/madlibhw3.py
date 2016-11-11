@@ -17,14 +17,13 @@ nltk.download('punkt')
 from nltk.book import *
 from nltk import word_tokenize, sent_tokenize
 print("START*******")
-text = text2[:150]
+text = text2[:150] #Sets up 150 tokens
 print (text)
-#tokens = nltk.word_tokenize(text)
-#print(tokens[:150])
+
 tagged_tokens = nltk.pos_tag(text)
 tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective", 'AD': 'an adverb'}
-substitution_probabilities = {"NN":.15,"NNS":.15,"VB":.1,"JJ":.1,'AD':.1 }
-def spaced(word):
+substitution_probabilities = {"NN":.15,"NNS":.15,"VB":.1,"JJ":.1,'AD':.1 } #Sets up the probabilities for each type of word
+ def spaced(word):
 	if word in [",", ".", "?", "!", ":"]:
 		return word
 	else:
